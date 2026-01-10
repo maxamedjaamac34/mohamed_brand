@@ -1,9 +1,9 @@
 /* Sets the Onyx background and defines the Emerald AI glow.
 Global Branding & Styling */
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 :root {
   --background: #000000;

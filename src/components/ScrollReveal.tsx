@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
 interface ScrollRevealProps {
@@ -17,14 +17,25 @@ export default function ScrollReveal({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
   const controls = useAnimation();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) {
+      // On initial mount, set to visible immediately to match server render
+      controls.set("visible");
+      return;
+    }
+    
     if (isInView) {
       controls.start("visible");
     } else {
       controls.start("hidden");
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, mounted]);
 
   const directionVariants = {
     up: { y: 50, opacity: 0 },
@@ -47,11 +58,12 @@ export default function ScrollReveal({
     },
   };
 
+  // Always render motion.div with same initial state to avoid hydration mismatch
   return (
     <motion.div
       ref={ref}
       variants={variants}
-      initial="hidden"
+      initial={false}
       animate={controls}
     >
       {children}
