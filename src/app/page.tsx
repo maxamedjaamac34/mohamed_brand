@@ -1,163 +1,144 @@
 "use client";
 
-import { Briefcase, GraduationCap, Github, Linkedin, FileText, Code, Rocket } from "lucide-react";
+import { Briefcase, GraduationCap, Github, Linkedin, FileText, Code, Rocket, ArrowUpRight } from "lucide-react";
 import ContactMod from "@/components/ContactMod";
 import AIChat from "@/components/AIChat";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
-    <main className="min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 lg:py-20 max-w-6xl mx-auto">
-      {/* Brand Identity Header */}
-      <ScrollReveal direction="down">
-        <header className="mb-12 md:mb-16 lg:mb-20 text-center lg:text-left max-w-4xl mx-auto lg:mx-0">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black italic tracking-tight uppercase leading-[0.9] mb-4">
-            Mohamed <span className="text-emerald-500 block lg:inline">Ahmed</span>
-          </h1>
-          
-          <p className="mono-font text-zinc-400 text-sm sm:text-base tracking-[0.3em] uppercase">
-            Founder // Maker // Educator
-          </p>
-          <p className="mt-6 text-zinc-300 text-base md:text-lg max-w-2xl leading-relaxed">
-            Building the future of commerce in Somaliland. Computer Science & Mathematics student at Bennington College. 
-            Passionate about solving real-world problems through technology.
-          </p>
-        </header>
-      </ScrollReveal>
-
-      {/* Side-by-Side Card Layout */}
-      <div className="space-y-6 md:space-y-10 lg:space-y-12">
+    <main className="min-h-screen bg-black p-4 md:p-6 lg:p-8 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Career: Agabb - Black Card with White Text */}
-        <ScrollReveal delay={0.1}>
-          <div className="bg-gradient-to-br from-black to-zinc-950 rounded-3xl p-8 md:p-10 lg:p-12 mx-auto max-w-5xl border border-zinc-800/50 hover:border-emerald-500/40 transition-all duration-300 group shadow-2xl hover:shadow-emerald-500/20">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-emerald-500/20 rounded-xl border border-emerald-500/40 group-hover:bg-emerald-500/30 transition-colors">
-                <Briefcase className="text-emerald-400" size={32} />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-2 text-white">COO @ Agabb</h2>
-                <p className="text-emerald-400 mono-font text-sm uppercase tracking-wider">2024 - Present</p>
-              </div>
+        {/* --- IDENTITY SECTION --- */}
+        <ScrollReveal direction="down">
+          <header className="mb-8 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
+            <div className="space-y-2 flex-shrink-0">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black italic tracking-tighter uppercase leading-[0.85] break-words">
+                Mohamed <span className="text-emerald-500">Ahmed</span>
+              </h1>
+              <p className="mono-font text-zinc-500 text-xs md:text-sm tracking-[0.3em] md:tracking-[0.4em] uppercase px-1">
+                Founder // Maker // Educator
+              </p>
             </div>
-            <p className="text-zinc-200 text-lg md:text-xl leading-relaxed mb-6 max-w-3xl">
-              Leading Somaliland's first locally-sourced Point of Sale system. Building technology that solves 
-              real inventory and financial scaling challenges for local businesses. Combining deep technical 
-              expertise with on-the-ground market understanding.
-            </p>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <span className="px-4 py-2 bg-zinc-900/80 rounded-lg text-sm mono-font border border-zinc-700/50 text-white">POS Systems</span>
-              <span className="px-4 py-2 bg-zinc-900/80 rounded-lg text-sm mono-font border border-zinc-700/50 text-white">Inventory Management</span>
-              <span className="px-4 py-2 bg-zinc-900/80 rounded-lg text-sm mono-font border border-zinc-700/50 text-white">Financial Tech</span>
+            <div className="md:text-right max-w-xs text-zinc-400 text-xs md:text-sm mono-font leading-relaxed flex-shrink">
+              [SYSTEM_STATUS: ACTIVE]<br />
+              Building the future of commerce in Somaliland.
             </div>
-            <a href="#" className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold text-sm uppercase tracking-wider transition-colors group/link">
-              View Venture
-              <span className="group-hover/link:translate-x-1 transition-transform">→</span>
-            </a>
-          </div>
+          </header>
         </ScrollReveal>
 
-        {/* Two Column Section: Education & Resume */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {/* Education - Emerald Green Card */}
-          <ScrollReveal delay={0.2} direction="right">
-            <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-3xl p-8 md:p-10 border border-emerald-500/30 hover:border-emerald-400/50 transition-all duration-300 group h-full flex flex-col justify-center items-center text-center shadow-xl hover:shadow-emerald-500/30 text-white">
-              <div className="p-4 bg-white/10 rounded-2xl border border-white/20 mb-6 group-hover:scale-110 transition-transform backdrop-blur-sm">
-                <GraduationCap className="text-white" size={40} />
+        {/* --- BENTO GRID --- */}
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-4 lg:gap-6">
+          
+          {/* Main Venture: Agabb (Spans 2x2) */}
+          <div className="md:col-span-2 md:row-span-2">
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="relative group overflow-hidden bg-zinc-900/40 border border-zinc-800 rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col justify-between hover:border-emerald-500/40 transition-all duration-500 h-full min-h-[380px] md:min-h-[420px]">
+                <div className="absolute top-0 right-0 p-4 md:p-6 lg:p-8 text-emerald-500/10 group-hover:text-emerald-500/20 transition-colors pointer-events-none">
+                  <Briefcase size={80} strokeWidth={1} className="md:w-[100px] md:h-[100px]" />
+                </div>
+                <div className="relative z-10 space-y-4 pr-40 md:pr-48 lg:pr-56">
+                  <div className="flex items-center gap-2 text-emerald-500 uppercase text-[10px] md:text-xs font-bold tracking-widest">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    
+                    Current Project
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter uppercase text-white leading-tight">COO @ Agabb</h2>
+                  <p className="text-zinc-400 text-sm md:text-base lg:text-lg leading-relaxed max-w-sm font-medium">
+                    Leading East Somaliland's first locally-sourced POS system. Scaling inventory for 10+ businesses.
+                  </p>
+                </div>
+                <a href="https://agabb.com" className="relative z-10 inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-white text-black rounded-full text-[10px] md:text-xs font-bold uppercase hover:bg-emerald-500 transition-colors w-fit mt-6">
+                  Visit Agabb <ArrowUpRight size={12} className="md:w-[14px] md:h-[14px]" />
+                </a>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-3 text-white">Bennington College</h3>
-              <p className="text-emerald-100 mono-font text-sm uppercase tracking-wider mb-4">Class of 2027</p>
-              <div className="space-y-2 text-white">
-                <p className="text-lg font-semibold">Computer Science</p>
-                <p className="text-lg font-semibold">Mathematics</p>
-              </div>
-              <p className="mt-6 text-emerald-50 text-sm leading-relaxed max-w-sm opacity-90">
-                Pursuing interdisciplinary studies with focus on algorithms, data structures, and mathematical modeling.
-              </p>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
 
-          {/* Resume - White/Light Card */}
-          <ScrollReveal delay={0.3} direction="left">
-            <div className="bg-gradient-to-br from-white to-zinc-50 rounded-3xl p-8 md:p-10 border border-zinc-200 hover:border-emerald-400/50 transition-all duration-300 group h-full flex flex-col justify-center items-center text-center cursor-pointer shadow-xl hover:shadow-2xl">
-              <div className="p-4 bg-emerald-500/10 rounded-2xl border border-emerald-500/30 mb-6 group-hover:scale-110 transition-transform">
-                <FileText className="text-emerald-600" size={40} />
+          {/* Outreach Layer: One-Click (Spans 3x1) */}
+          <div className="md:col-span-3">
+            <ScrollReveal direction="up" delay={0.2}>
+              <div className="bg-emerald-500 rounded-3xl border border-zinc-800 p-6 md:p-8 flex flex-col justify-between ai-glow h-full min-h-[180px] md:min-h-[200px]">
+                <h3 className="text-black text-xl md:text-2xl font-black uppercase italic leading-tight mb-4">Connect Instantly</h3>
+                <div className="flex flex-wrap gap-2">
+                  <ContactMod role="recruiter" label="I'm a Recruiter" />
+                  <ContactMod role="founder" label="I'm a Founder" />
+                  <ContactMod role="student" label="I'm a Student" />
+                </div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-3 text-zinc-900 group-hover:text-emerald-600 transition-colors">Resume</h3>
-              <p className="text-emerald-600 mono-font text-sm uppercase tracking-wider mb-4">Download PDF</p>
-              <p className="text-zinc-700 text-sm mono-font border border-zinc-300 rounded-lg px-4 py-2 bg-zinc-100">
-                LATEX_EXPORT.PDF
-              </p>
-              <p className="mt-6 text-zinc-600 text-sm leading-relaxed max-w-sm">
-                Comprehensive overview of technical skills, work experience, and academic achievements.
-              </p>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
+
+          {/* Education: Bennington (Spans 1x1) */}
+          <div>
+            <ScrollReveal direction="up" delay={0.3}>
+              <div className="bg-zinc-900/40 border border-zinc-800 rounded-3xl p-6 flex flex-col items-center justify-center text-center hover:bg-zinc-800/60 transition-colors h-full min-h-[180px] md:min-h-[200px]">
+                <GraduationCap className="text-emerald-500 mb-3" size={150} />
+                <h4 className="font-bold text-xs md:text-sm tracking-tight">BENNINGTON COLLEGE</h4>
+                <p className="mono-font text-[9px] md:text-[10px] text-zinc-500 uppercase mt-1">CS & Math '27</p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Traditional Layer: Resume (Spans 1x2) */}
+          <div className="md:row-span-2 flex items-center justify-center">
+            <ScrollReveal direction="up" delay={0.4}>
+              <a href="/resume.pdf" className="block bg-zinc-900/40 border border-zinc-800 rounded-3xl p-6 flex flex-col items-center justify-center text-center hover:bg-emerald-500 group transition-all h-full min-h-[360px] md:min-h-[380px]">
+                <FileText className="text-emerald-500 group-hover:text-black mb-3" size={150} />
+                <h4 className="font-bold text-xs md:text-sm group-hover:text-black">RESUME</h4>
+                <p className="mono-font text-[9px] md:text-[10px] text-zinc-500 group-hover:text-black uppercase mt-1">Export.PDF</p>
+              </a>
+            </ScrollReveal>
+          </div>
+
+          {/* Experiment Layer: AI Pet (Spans 2x3) */}
+          <div className="md:col-span-2 md:row-span-3">
+            <ScrollReveal direction="up" delay={0.5}>
+              <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 md:p-8 lg:p-10 relative overflow-hidden h-full min-h-[540px] md:min-h-[560px]">
+                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
+                 <div className="relative z-10 h-full flex flex-col">
+                   <AIChat />
+                 </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Technical Skills (Spans 1x1) */}
+          <div>
+            <ScrollReveal direction="up" delay={0.6}>
+              <div className="bg-zinc-900/40 border border-zinc-800/50 rounded-3xl p-6 md:p-8 flex flex-col justify-center h-full min-h-[180px] md:min-h-[200px]">
+                <div className="flex items-center gap-2 text-zinc-500 mb-4 mono-font text-[9px] md:text-[10px] uppercase">
+                  <Code size={12} className="md:w-[14px] md:h-[14px]" />
+                  <span>Technical_Stack</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["C++", "Python", "React", "Next.js", "FastAPI", "AWS"].map((s) => (
+                    <span key={s} className="px-2.5 md:px-3 py-1 bg-black/40 border border-zinc-800 rounded-md text-[9px] md:text-[10px] mono-font text-zinc-400">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
 
-        {/* One-Click Outreach - Bright Emerald */}
-        <ScrollReveal delay={0.4}>
-          <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl p-8 md:p-10 lg:p-12 mx-auto max-w-5xl text-black shadow-2xl hover:shadow-emerald-500/40 transition-shadow">
-            <div className="flex items-center gap-3 mb-6">
-              <Rocket className="text-black/70" size={32} />
-              <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tight">One-Click Outreach</h3>
+        {/* --- FOOTER --- */}
+        <ScrollReveal direction="up" delay={0.7}>
+          <footer className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-600 mono-font text-[9px] md:text-[10px] uppercase tracking-widest">
+            <p className="text-center md:text-left">© 2026 Mohamed Ahmed // System_Online</p>
+            <div className="flex gap-4">
+              <a href="#" className="hover:text-emerald-500 transition-colors" aria-label="GitHub">
+                <Github size={14} className="md:w-4 md:h-4" />
+              </a>
+              <a href="#" className="hover:text-emerald-500 transition-colors" aria-label="LinkedIn">
+                <Linkedin size={14} className="md:w-4 md:h-4" />
+              </a>
             </div>
-            <p className="text-black/80 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
-              Get in touch instantly. Choose your role and I'll send you a personalized message tailored to your needs.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <ContactMod role="recruiter" label="Recruiter" />
-              <ContactMod role="founder" label="Founder" />
-              <ContactMod role="student" label="Student" />
-            </div>
-          </div>
+          </footer>
         </ScrollReveal>
-
-        {/* AI Chat - Dark Zinc with Emerald Accents */}
-        <ScrollReveal delay={0.5}>
-          <div className="bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-8 md:p-10 lg:p-12 mx-auto max-w-5xl border border-zinc-700/50 hover:border-emerald-500/40 transition-all duration-300 shadow-2xl hover:shadow-emerald-500/20 min-h-[400px] flex flex-col">
-            <AIChat />
-          </div>
-        </ScrollReveal>
-
-        {/* Skills Section - Light Zinc with White Text */}
-        <ScrollReveal delay={0.6}>
-          <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl p-8 md:p-10 mx-auto max-w-5xl border border-zinc-700/50 hover:border-emerald-500/40 transition-all duration-300 shadow-xl">
-            <div className="flex items-center gap-3 mb-8">
-              <Code className="text-emerald-400" size={32} />
-              <h3 className="text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">Technical Skills</h3>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[
-                "C++", "Python", "JavaScript", "TypeScript",
-                "React", "Next.js", "Node.js", "FastAPI",
-                "PostgreSQL", "MongoDB", "Git", "Docker",
-                "Linux", "AWS", "REST APIs", "GraphQL"
-              ].map((skill, idx) => (
-                <div key={idx} className="p-4 bg-zinc-700/50 rounded-xl border border-zinc-600/50 hover:border-emerald-500/60 hover:bg-zinc-700/70 transition-all text-center mono-font text-sm font-medium text-white">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
-
       </div>
-
-      {/* Footer System Status */}
-      <ScrollReveal delay={0.7}>
-        <footer className="mt-16 md:mt-20 lg:mt-24 border-t border-zinc-900 pt-8 md:pt-12 flex flex-col sm:flex-row justify-between items-center gap-6 mono-font text-xs md:text-sm text-zinc-600">
-          <p className="uppercase tracking-wider">ST_READY // MOHAMED_OS_V1.0</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-emerald-500 transition-colors">
-              <Github size={20} className="hover:scale-110 transition-transform" />
-            </a>
-            <a href="#" className="hover:text-emerald-500 transition-colors">
-              <Linkedin size={20} className="hover:scale-110 transition-transform" />
-            </a>
-          </div>
-        </footer>
-      </ScrollReveal>
     </main>
   );
 }

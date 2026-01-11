@@ -21,7 +21,7 @@ export default function ContactMod({ role, label }: ContactProps) {
   return (
     <button 
       onClick={sendMessage}
-      className="bg-black/90 text-white border-2 border-black/40 px-6 py-3 rounded-xl text-sm md:text-base font-bold uppercase tracking-wider hover:bg-black hover:border-white/50 hover:shadow-xl hover:shadow-black/30 hover:scale-105 transition-all active:scale-95 backdrop-blur-sm"
+      className="bg-black/90 text-white border-2 border-black/40 px-4 md:px-6 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold uppercase tracking-wider hover:bg-black hover:border-white/50 hover:shadow-xl hover:shadow-black/30 hover:scale-105 transition-all active:scale-95 backdrop-blur-sm whitespace-nowrap"
     >
       {label}
     </button>

@@ -1,38 +1,62 @@
-/* Sets the Onyx background and defines the Emerald AI glow.
-Global Branding & Styling */
-
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --emerald-primary: #10b981;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-.ai-glow {
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.hover\:ai-glow:hover {
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.25), 0 0 60px rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.5);
-  transform: translateY(-2px);
+  /* Use the variables we set in layout.tsx */
+  font-family: var(--font-inter), sans-serif;
 }
 
 .mono-font {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono), monospace;
+}
+
+/* Subtle glow for the green action card */
+.ai-glow {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+}
+
+/* Ensure images/icons have crisp rendering */
+svg {
+  shape-rendering: geometricPrecision;
+}
+
+/* Hide scrollbar for a cleaner OS look but allow scrolling */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Grid item containment */
+.grid > * {
+  min-width: 0;
+}
+
+/* Prevent text overflow */
+h1, h2, h3, h4, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Better grid row handling */
+@media (min-width: 768px) {
+  .grid.grid-cols-4 {
+    grid-auto-rows: minmax(180px, auto);
+  }
 }

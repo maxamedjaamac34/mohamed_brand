@@ -15,7 +15,7 @@ export default function ScrollReveal({
   direction = "up" 
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.15, margin: "-50px" });
   const controls = useAnimation();
   const [mounted, setMounted] = useState(false);
 
@@ -25,15 +25,13 @@ export default function ScrollReveal({
 
   useEffect(() => {
     if (!mounted) {
-      // On initial mount, set to visible immediately to match server render
-      controls.set("visible");
+      // On initial mount, start hidden for smooth entrance
+      controls.set("hidden");
       return;
     }
     
     if (isInView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [isInView, controls, mounted]);
 
@@ -45,15 +43,17 @@ export default function ScrollReveal({
   };
 
   const variants = {
-    hidden: directionVariants[direction],
+    hidden: {
+      ...directionVariants[direction],
+    },
     visible: {
       y: 0,
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
         delay,
-        ease: [0.21, 1.11, 0.81, 0.99],
+        ease: [0.21, 1.11, 0.81, 0.99] as [number, number, number, number],
       },
     },
   };
@@ -63,8 +63,10 @@ export default function ScrollReveal({
     <motion.div
       ref={ref}
       variants={variants}
-      initial={false}
+      initial="hidden"
       animate={controls}
+      style={{ height: '100%' }}
+      className="h-full"
     >
       {children}
     </motion.div>
