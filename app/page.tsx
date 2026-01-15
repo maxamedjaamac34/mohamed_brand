@@ -92,9 +92,14 @@ export default function Page() {
 
             {/* Quiet CTA */}
             <div className = "pt-2">
-              <button className = "text-foreground underline underline-offset-4 hover:opacity-80 transition">
-              View résumé
-              </button>
+            <a
+              href="/Mohamed_Ahmed_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4 hover:opacity-80 transition"
+            >
+              View résumé (PDF)
+            </a>
             </div>
           </div>
         </ExpandableSection>
