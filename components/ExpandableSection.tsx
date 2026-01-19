@@ -12,10 +12,11 @@ export default function ExpandableSection({
   return (
     <div
       className={cn(
-        "overflow-hidden transition-all duration-600 ease-out",
-        open ? "max-h-[600px] opacity-100 mt-48" : "max-h-0 opacity-0"
+        "grid transition-all duration-500 ease-out",
+        open ? "grid-rows-[1fr] opacity-100 mt-48" : "grid-rows-[0fr] opacity-0"
       )}
     >
+      <div className="overflow-hidden"></div>
       {children}
     </div>
   );
