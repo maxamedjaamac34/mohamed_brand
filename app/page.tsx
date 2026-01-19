@@ -72,14 +72,14 @@ export default function Page() {
   }));
 
   return (
-    <div className="flex min-h-[400px] w-full items-center justify-center py-20">
+    <div className="flex min-h-[400px] w-full items-start justify-center pt-20 pb-12">
       <div className="w-full max-w-3xl">
         {/* STACKED CARDS */}
         <DisplayCards cards={cards} />
 
         {/* EXPANDED CONTENT */}
-        <ExpandableSection open={active === "build"}>
-          <div className="mt-8 space-y-6 text-sm text-muted-foreground">
+        <ExpandableSection open={active === "build"} marginTop="mt-24">
+          <div className="space-y-6 text-sm text-muted-foreground">
             {/* Positioning */}
             <p className="max-w-2xl">
               I focus on building reliable, well-structured software systems — from
@@ -121,8 +121,8 @@ export default function Page() {
           </div>
         </ExpandableSection>
 
-        <ExpandableSection open={active === "ship"}>
-          <div className="mt-8 space-y-6 text-sm text-muted-foreground">
+        <ExpandableSection open={active === "ship"} marginTop="mt-12">
+          <div className="space-y-6 text-sm text-muted-foreground">
 
             {/* Execution framing */}
             <p className="max-w-2xl">
@@ -172,8 +172,8 @@ export default function Page() {
         </ExpandableSection>
 
 
-        <ExpandableSection open={active === "learn"}>
-          <div className="mt-8 space-y-6">
+        <ExpandableSection open={active === "learn"} marginTop="mt-8">
+          <div className="space-y-6">
 
             {/* Framing */}
             <p className="text-sm text-muted-foreground max-w-2xl">
