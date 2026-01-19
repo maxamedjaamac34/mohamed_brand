@@ -7,12 +7,25 @@ import { Code, Rocket, Brain } from "lucide-react";
 
 type Section = "build" | "ship" | "learn" | null;
 
+type CardConfig = {
+  key: Section;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  date: string;
+  className: string;
+  iconClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+};
+
 export default function Page() {
   const [active, setActive] = useState<Section>(null);
 
-  const cards = [
+  const cardConfigs: CardConfig[] = [
     // FRONT CARD — BUILD
     {
+      key: "build",
       icon: <Code className="size-4 text-emerald-300" />,
       title: "Build",
       description: "Engineering & systems",
@@ -22,11 +35,11 @@ export default function Page() {
       descriptionClassName: "absolute left-6 top-1/2 -translate-y-1/2",
       className:
         "[grid-area:stack] hover:-translate-y-16 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 cursor-pointer",
-      onClick: () => setActive(active === "build" ? null : "build"),
     },
 
     // MIDDLE CARD — SHIP
     {
+      key: "ship",
       icon: <Rocket className="size-4 text-blue-300" />,
       title: "Ship",
       description: "Startups & execution",
@@ -36,11 +49,11 @@ export default function Page() {
       descriptionClassName: "absolute left-6 top-1/2 -translate-y-1/2",
       className:
         "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 cursor-pointer",
-      onClick: () => setActive(active === "ship" ? null : "ship"),
     },
 
     // BACK CARD — LEARN
     {
+      key: "learn",
       icon: <Brain className="size-4 text-purple-300" />,
       title: "Learn",
       description: "Growth & experimentation",
@@ -50,9 +63,13 @@ export default function Page() {
       descriptionClassName: "absolute left-6 top-1/2 -translate-y-1/2",
       className:
         "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10 cursor-pointer",
-      onClick: () => setActive(active === "learn" ? null : "learn"),
     },
   ];
+
+  const cards = cardConfigs.map((card) => ({
+    ...card,
+    onClick: () => setActive(active === card.key ? null : card.key),
+  }));
 
   return (
     <div className="flex min-h-[400px] w-full items-center justify-center py-20">
@@ -98,7 +115,7 @@ export default function Page() {
               rel="noopener noreferrer"
               className="text-foreground underline underline-offset-4 hover:opacity-80 transition"
             >
-              View résumé (PDF)
+              View résumé (ATS-friendly PDF)
             </a>
             </div>
           </div>
@@ -166,7 +183,10 @@ export default function Page() {
             </p>
 
             {/* AI Chat */}
-            <div className="max-w-2xl">
+            <div className="max-w-2xl rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-4">
+              <p className="text-xs text-muted-foreground mb-2">
+                Experimental AI interface
+              </p>
               AIChat
             </div>
 
@@ -179,6 +199,15 @@ export default function Page() {
           </div>
         </ExpandableSection>
 
+        {/* Recruiter / Founder Contact Entry Point */}
+        <div className="mt-24 flex justify-center gap-4">
+          <button className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider bg-white/[0.03] border border-white/10 hover:border-emerald-500/50 hover:text-emerald-400 transition-all">
+            Recruiter
+          </button>
+          <button className="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider bg-white/[0.03] border border-white/10 hover:border-emerald-500/50 hover:text-emerald-400 transition-all">
+            Founder / Investor
+          </button>
+        </div>
         
       </div>
     </div>

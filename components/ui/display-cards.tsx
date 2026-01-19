@@ -29,7 +29,8 @@ function DisplayCard({
   onClick,
 }: DisplayCardProps) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
       className={cn(
         "relative flex h-44 w-[26rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-6 py-4 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-white/20 hover:bg-muted [&>*]:flex [&>*]:items-center [&>*]:gap-2",
@@ -46,7 +47,7 @@ function DisplayCard({
         <p className={cn("text-lg font-medium", titleClassName)}>{title}</p>
       </div>
       <p className={cn("whitespace-nowrap text-lg", descriptionClassName)}>{description}</p>
-    </div>
+    </button>
   );
 }
 
@@ -92,9 +93,10 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
 
   return (
     <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700 -ml-12">
-      {displayCards.map((cardProps, index) => (
-        <DisplayCard key={index} {...cardProps} />
-      ))}
+      {displayCards.map((cardProps, index) => {
+        const { key, ...restProps } = cardProps as DisplayCardProps & { key?: string };
+        return <DisplayCard key={key || index} {...restProps} />;
+      })}
     </div>
   );
 }
